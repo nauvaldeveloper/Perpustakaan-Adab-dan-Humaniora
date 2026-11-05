@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perpustakaan Fakultas Adab dan Humaniora</title>
+  <meta name="description" content="Perpustakaan Fakultas Adab dan Humaniora UIN Sunan Gunung Djati Bandung: koleksi, layanan, dan kegiatan.">
+  <link rel="icon" href="assets/logo.png">
+
+  <!-- Font dari Google Fonts: DM Sans (teks biasa), Chakra Petch (judul) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================================================
+       ORANG 1 - NAVBAR
+       ================================================== -->
+  <header class="navbar">
+    <div class="navbar-isi">
+      <a class="merek" href="#tentang">
+        <img src="assets/logo.png" alt="Logo Fakultas Adab dan Humaniora UIN Sunan Gunung Djati Bandung" width="46" height="46">
+        <span>Perpustakaan<br>Adab dan Humaniora</span>
+      </a>
+
+      <nav class="menu" aria-label="Menu utama">
+        <a href="#tentang">Tentang kami</a>
+        <a href="#quick-access">Quick Access</a>
+        <a href="#rekomendasi">Rekomendasi</a>
+        <a href="#katalog">Katalog</a>
+        <a href="#statistik">Statistik</a>
+        <a href="#informasi">Informasi</a>
+      </nav>
+
+      <a class="tombol tombol-kuning" href="#layanan">Jelajahi Layanan ↗</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================================================
+         ORANG 1 - HERO
+         ================================================== -->
+    <section class="hero" id="tentang">
+      <div class="hero-isi">
+        <div class="hero-teks">
+          <span class="lencana">HUMANIS</span>
+          <h1>Wilujeng Sumping !</h1>
+          <p>Perpustakaan Fakultas Adab dan Humaniora hadir sebagai pusat rujukan bagi dunia sastra, bahasa, juga sejarah dan kebudayaan manusia. Sebuah ruang bertumbuh, berpikir, dan berdiskusi untuk merawat nilai-nilai peradaban sekaligus menjelajahi kedalaman ilmu pengetahuan.</p>
+
+          <div class="hero-tombol">
+            <a class="tombol tombol-gelap" href="#quick-access">Selengkapnya →</a>
+            <a class="tombol tombol-garis" href="#layanan">Layanan</a>
+          </div>
+
+          <dl class="hero-angka">
+            <div><dd>2.400+</dd><dt>Koleksi buku</dt></div>
+            <div><dd>24</dd><dt>Kategori pilihan</dt></div>
+            <div><dd>6 hari</dd><dt>Layanan tiap pekan</dt></div>
+          </dl>
+        </div>
+
+        <figure class="hero-foto">
+          <img src="assets/rak-buku.jpg" alt="Rak buku kayu melengkung penuh koleksi di dalam perpustakaan" width="552" height="520">
+          <figcaption>Satu buku, seribu kemungkinan.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         ORANG 2 - QUICK ACCESS
+         ================================================== -->
+    <section class="bagian" id="quick-access">
+      <div class="wadah">
+        <p class="label">Layanan perpustakaan</p>
+        <h2>Quick Access</h2>
+        <div class="garis-judul"></div>
+
+        <!-- Baris atas: 4 kartu pintasan -->
+        <div class="grid-4">
+          <article class="kartu-akses">
+            <div class="ikon" aria-hidden="true">◎</div>
+            <h3>Kepuasan Pengguna</h3>
+            <p>Nilai layanan kami</p>
+            <a class="tombol tombol-kuning" href="#nilai">Beri nilai →</a>
+          </article>
+
+          <article class="kartu-akses">
+            <div class="ikon" aria-hidden="true">▤</div>
+            <h3>Kehadiran Pengunjung</h3>
+            <p>Catat kunjungan Anda</p>
+            <a class="tombol tombol-kuning" href="#kehadiran">Lihat layanan →</a>
+          </article>
+
+          <article class="kartu-akses">
+            <div class="ikon" aria-hidden="true">✉&#xFE0E;</div>
+            <h3>Ask Librarian</h3>
+            <p>Tanya pustakawan</p>
+            <a class="tombol tombol-kuning" href="#tanya">Hubungi kami →</a>
+          </article>
+
+          <article class="kartu-akses">
+            <div class="ikon" aria-hidden="true">▣</div>
+            <h3>Library Guides</h3>
+            <p>Panduan penelusuran</p>
+            <a class="tombol tombol-kuning" href="#panduan">Lihat panduan →</a>
+          </article>
+        </div>
+
+        <!-- Baris bawah: 4 kartu detail -->
+        <div class="grid-4 baris-detail">
+          <article class="kartu-detail" id="nilai">
+            <h3>Nilai layanan kami</h3>
+            <p>Pilih nilai untuk melihat penilaian Anda di halaman ini. Untuk masukan resmi, hubungi pustakawan.</p>
+
+            <!-- Radio button + label: pilih nilai tanpa JavaScript -->
+            <fieldset class="rating">
+              <legend class="tersembunyi">Pilih nilai 1 sampai 5</legend>
+              <input class="tersembunyi" type="radio" name="nilai" id="nilai-1"><label for="nilai-1">1</label>
+              <input class="tersembunyi" type="radio" name="nilai" id="nilai-2"><label for="nilai-2">2</label>
+              <input class="tersembunyi" type="radio" name="nilai" id="nilai-3"><label for="nilai-3">3</label>
+              <input class="tersembunyi" type="radio" name="nilai" id="nilai-4"><label for="nilai-4">4</label>
+              <input class="tersembunyi" type="radio" name="nilai" id="nilai-5"><label for="nilai-5">5</label>
+              <p class="pesan-nilai">Terima kasih atas penilaian Anda.</p>
+            </fieldset>
+          </article>
+
+          <article class="kartu-detail" id="kehadiran">
+            <h3>Kehadiran Pengunjung</h3>
+            <p>Tandai kunjungan pada tampilan ini. Pencatatan kunjungan resmi dilakukan melalui petugas perpustakaan.</p>
+
+            <!-- Checkbox + label: tombol yang bisa berubah tanpa JavaScript -->
+            <input class="tersembunyi" type="checkbox" id="tandai">
+            <label class="tombol tombol-gelap tombol-tandai" for="tandai">
+              <span class="belum">Tandai kunjungan</span>
+              <span class="sudah">✓ Kunjungan ditandai</span>
+            </label>
+          </article>
+
+          <article class="kartu-detail" id="tanya">
+            <h3>Ask Librarian</h3>
+            <p>Punya pertanyaan tentang koleksi? Kirim email kepada pustakawan.</p>
+            <a class="tombol tombol-gelap" href="mailto:adhum@uinsgd.ac.id">Kirim email ↗</a>
+          </article>
+
+          <article class="kartu-detail" id="panduan">
+            <h3>Library Guides</h3>
+            <p>Gunakan pencarian judul, penulis, atau kata kunci; lalu pilih kategori untuk mempersempit hasil.</p>
+            <a class="tombol tombol-gelap" href="#katalog">Coba katalog →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         ORANG 3 - KOLEKSI REKOMENDASI
+         ================================================== -->
+    <section class="bagian bagian-krem" id="rekomendasi">
+      <div class="wadah">
+        <p class="label">Temukan bacaan</p>
+        <h2>Koleksi Rekomendasi</h2>
+        <div class="garis-judul"></div>
+
+        <div class="grid-3">
+          <article class="kartu-rekomendasi">
+            <h3 class="judul-daftar">Sering Dibaca</h3>
+            <ul class="daftar-buku">
+              <li>
+                <img src="assets/buku/filosofi-teras.jpg" alt="Sampul buku Filosofi Teras" width="64" height="80">
+                <div><h4>Filosofi teras</h4><p>Hendry Manampiring</p></div>
+              </li>
+              <li>
+                <img src="assets/buku/seporsi-mie-ayam.jpg" alt="Sampul buku Seporsi Mie Ayam Sebelum Mati" width="64" height="80">
+                <div><h4>Seporsi mie ayam sebelum mati</h4><p>Brian Khrisna</p></div>
+              </li>
+              <li>
+                <img src="assets/buku/atomic-habits-kecil.jpg" alt="Sampul buku Atomic Habits" width="64" height="80">
+                <div><h4>Atomic habits</h4><p>James Clear</p></div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="kartu-rekomendasi">
+            <h3 class="judul-daftar">Sering Dipinjam</h3>
+            <ul class="daftar-buku">
+              <li>
+                <img src="assets/buku/kamus-arab.jpg" alt="Sampul Kamus Bahasa Arab Indonesia" width="64" height="80">
+                <div><h4>Kamus bahasa arab indonesia</h4><p>Ahmad Najieh</p></div>
+              </li>
+              <li>
+                <img src="assets/buku/kamus-inggris.jpg" alt="Sampul Kamus Inggris Indonesia" width="64" height="80">
+                <div><h4>Kamus inggris indonesia</h4><p>John M. Echols dan Hassan Hasadily</p></div>
+              </li>
+              <li>
+                <img src="assets/buku/sejarah-islam.jpg" alt="Sampul buku Sejarah Islam Nusantara" width="64" height="80">
+                <div><h4>Sejarah islam nusantara</h4><p>H. M. Ridwan Lubis</p></div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="kartu-rekomendasi">
+            <h3 class="judul-daftar">Informasi Koleksi Mingguan</h3>
+            <ul class="daftar-buku">
+              <li>
+                <img src="assets/buku/bumi-manusia.jpg" alt="Sampul buku Bumi Manusia" width="64" height="80">
+                <div><h4>Bumi manusia</h4><p>Pramoedya Ananta Toer</p></div>
+              </li>
+              <li>
+                <img src="assets/buku/laskar-pelangi.jpg" alt="Sampul buku Laskar Pelangi" width="64" height="80">
+                <div><h4>Laskar pelangi</h4><p>Andrea Hirata</p></div>
+              </li>
+              <li>
+                <img src="assets/buku/ronggeng.jpg" alt="Sampul buku Ronggeng Dukuh Paruh" width="64" height="80">
+                <div><h4>Ronggeng dukuh paruh</h4><p>Ahmad Tohari</p></div>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <a class="tombol tombol-gelap tombol-besar" href="#katalog">Jelajahi katalog lengkap →</a>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         ORANG 4 - KATALOG (JELAJAHI RAK KAMI)
+         ================================================== -->
+    <section class="bagian" id="katalog">
+      <div class="wadah">
+        <!-- Radio button filter. Harus diletakkan SEBELUM elemen yang
+             dipengaruhinya, karena selector "~" hanya melihat ke bawah. -->
+        <input class="tersembunyi filter" type="radio" name="kategori" id="f-semua" checked>
+        <input class="tersembunyi filter" type="radio" name="kategori" id="f-fiksi">
+        <input class="tersembunyi filter" type="radio" name="kategori" id="f-sains">
+        <input class="tersembunyi filter" type="radio" name="kategori" id="f-sejarah">
+        <input class="tersembunyi filter" type="radio" name="kategori" id="f-diri">
+
+        <p class="label">Koleksi pilihan</p>
+        <h2 class="judul-dm">Jelajahi Rak Kami</h2>
+
+        <div class="katalog-atas">
+          <p>Mulai dari kisah fiksi hingga gagasan yang mengubah cara pandang.</p>
+          <p class="jumlah-hasil">
+            <span class="hasil-semua">4 buku ditemukan</span>
+            <span class="hasil-satu">1 buku ditemukan</span>
+          </p>
+        </div>
+
+        <div class="pencarian">
+          <label for="cari">Cari buku</label>
+          <input type="search" id="cari" placeholder="Cari judul, penulis, atau kata kunci...">
+          <small>Coba cari “Laut”, “sejarah”, atau “kebiasaan”.</small>
+        </div>
+
+        <div class="chips">
+          <label for="f-semua">Semua</label>
+          <label for="f-fiksi">Fiksi</label>
+          <label for="f-sains">Sains</label>
+          <label for="f-sejarah">Sejarah</label>
+          <label for="f-diri">Pengembangan diri</label>
+        </div>
+
+        <div class="grid-4 grid-buku">
+          <article class="kartu-buku fiksi">
+            <img src="assets/buku/laut-bercerita.jpg" alt="Sampul buku Laut Bercerita" width="298" height="191">
+            <div class="kartu-buku-isi">
+              <span class="tag">Fiksi</span>
+              <h3>Laut Bercerita</h3>
+              <p class="penulis">Leila S. Chudori</p>
+              <div class="info-buku"><span>Terbit 2017</span><span class="tersedia">Tersedia</span></div>
+              <details class="rincian">
+                <summary>Lihat rincian</summary>
+                <p>Novel tentang para aktivis mahasiswa yang hilang pada akhir masa Orde Baru dan keluarga yang ditinggalkan.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="kartu-buku sains">
+            <img src="assets/buku/sapiens.jpg" alt="Sampul buku Sapiens: Riwayat Singkat Umat Manusia" width="298" height="191">
+            <div class="kartu-buku-isi">
+              <span class="tag">Sains</span>
+              <h3>Sapiens</h3>
+              <p class="penulis">Yuval Noah Harari</p>
+              <div class="info-buku"><span>Terbit 2014</span><span class="tersedia">Tersedia</span></div>
+              <details class="rincian">
+                <summary>Lihat rincian</summary>
+                <p>Riwayat singkat umat manusia, dari revolusi kognitif hingga dunia modern.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="kartu-buku sejarah">
+            <img src="assets/buku/sejarah-indonesia.jpg" alt="Sampul buku Sejarah Indonesia Modern" width="298" height="191">
+            <div class="kartu-buku-isi">
+              <span class="tag">Sejarah</span>
+              <h3>Sejarah Indonesia Modern</h3>
+              <p class="penulis">M. C. Ricklefs</p>
+              <div class="info-buku"><span>Terbit 2008</span><span class="tersedia">Tersedia</span></div>
+              <details class="rincian">
+                <summary>Lihat rincian</summary>
+                <p>Rujukan sejarah Indonesia sejak kedatangan Islam hingga masa kini.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="kartu-buku diri">
+            <img src="assets/buku/atomic-habits.jpg" alt="Sampul buku Atomic Habits" width="298" height="191">
+            <div class="kartu-buku-isi">
+              <span class="tag">Pengembangan diri</span>
+              <h3>Atomic Habits</h3>
+              <p class="penulis">James Clear</p>
+              <div class="info-buku"><span>Terbit 2018</span><span class="tersedia">Tersedia</span></div>
+              <details class="rincian">
+                <summary>Lihat rincian</summary>
+                <p>Panduan membangun kebiasaan baik dan menghentikan kebiasaan buruk lewat perubahan kecil.</p>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         ORANG 4 - STATISTIK PENGUNJUNG
+         ================================================== -->
+    <section class="bagian bagian-statistik" id="statistik">
+      <div class="wadah">
+        <p class="label">Perpustakaan dalam angka</p>
+        <h2>Statistik Pengunjung</h2>
+
+        <div class="grid-2">
+          <article class="kartu-statistik">
+            <div class="ikon" aria-hidden="true">♗</div>
+            <p class="angka">1.250</p>
+            <h3>Jumlah Pengunjung</h3>
+          </article>
+
+          <article class="kartu-statistik">
+            <div class="ikon" aria-hidden="true">▤</div>
+            <p class="angka">480</p>
+            <h3>Jumlah Peminjam Buku</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         ORANG 5 - LAYANAN PERPUSTAKAAN
+         ================================================== -->
+    <section class="bagian-layanan" id="layanan">
+      <div class="wadah">
+        <!-- <details open> = terbuka sejak awal, bisa ditutup tanpa JavaScript -->
+        <details class="panel-layanan" open>
+          <summary>
+            <span class="label">Layanan perpustakaan</span>
+            <span class="tombol-panel">
+              <span class="teks-tutup">Tutup informasi</span>
+              <span class="teks-buka">Buka informasi</span>
+            </span>
+          </summary>
+          <h3>Layanan Sirkulasi</h3>
+          <h3>Layanan bebas pustaka</h3>
+          <h3>Repository</h3>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         ORANG 5 - KEGIATAN PERPUSTAKAAN
+         ================================================== -->
+    <section class="bagian bagian-krem" id="informasi">
+      <div class="wadah">
+        <p class="label">Informasi terkini</p>
+        <h2>Kegiatan perpustakaan</h2>
+        <p class="pengantar">Ikuti kabar terbaru tentang seminar, workshop, dan kegiatan edukatif yang berlangsung di ruang baca kami.</p>
+
+        <!-- Tombol "Baca selengkapnya" belum punya tujuan: ganti href
+             dengan halaman detail kegiatan kalau sudah tersedia. -->
+        <div class="grid-3">
+          <article class="kartu-kegiatan">
+            <img src="assets/kegiatan/seminar.jpg" alt="Peserta seminar duduk di ruang auditorium" width="403" height="191">
+            <div class="kartu-kegiatan-isi">
+              <div class="kegiatan-atas"><span class="tag">Seminar</span><time datetime="2026-11-12">12 November 2026</time></div>
+              <h3>Seminar literasi informasi untuk mahasiswa</h3>
+              <p>Belajar menemukan sumber tepercaya dan mengolah referensi untuk mendukung kegiatan akademik.</p>
+              <a class="tombol tombol-gelap" href="#informasi">Baca selengkapnya</a>
+            </div>
+          </article>
+
+          <article class="kartu-kegiatan">
+            <img src="assets/kegiatan/workshop.jpg" alt="Pemateri workshop menjelaskan di depan papan tulis" width="404" height="191">
+            <div class="kartu-kegiatan-isi">
+              <div class="kegiatan-atas"><span class="tag">Workshop</span><time datetime="2026-11-19">19 November 2026</time></div>
+              <h3>Workshop strategi membaca dan mencatat</h3>
+              <p>Sesi praktik untuk membangun kebiasaan membaca efektif bersama pustakawan dan peserta.</p>
+              <a class="tombol tombol-gelap" href="#informasi">Baca selengkapnya</a>
+            </div>
+          </article>
+
+          <article class="kartu-kegiatan">
+            <img src="assets/kegiatan/klub-baca.jpg" alt="Dua orang berdiskusi di meja bundar" width="403" height="191">
+            <div class="kartu-kegiatan-isi">
+              <div class="kegiatan-atas"><span class="tag">Edukasi</span><time datetime="2026-11-26">26 November 2026</time></div>
+              <h3>Klub baca: berdiskusi tentang buku pilihan</h3>
+              <p>Ruang bertukar gagasan bagi pembaca untuk menikmati karya dan memperluas perspektif.</p>
+              <a class="tombol tombol-gelap" href="#informasi">Baca selengkapnya</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================
+       ORANG 5 - FOOTER
+       ================================================== -->
+  <footer class="footer">
+    <div class="wadah">
+      <div class="footer-atas">
+        <div>
+          <h2>Lokasi perpustakaan</h2>
+          <address>
+            Perpustakaan Adab dan Humaniora Gedung R lt 2<br>
+            Jl. AH. Nasution No. 105, Cipadung Wetan, Kec. Cibiru, Kota Bandung, Jawa Barat 40614. Kontak: 1627198308 email: <a href="mailto:adhum@uinsgd.ac.id">adhum@uinsgd.ac.id</a><br>
+            Jam operasional senin - sabtu<br>
+            Pukul 07.00 - 17.00
+          </address>
+        </div>
+        <nav class="footer-menu" aria-label="Menu footer">
+          <a href="#tentang">Tentang kami</a>
+          <a href="#quick-access">Quick Access</a>
+          <a href="#katalog">Katalog</a>
+          <a href="#layanan">Layanan</a>
+        </nav>
+      </div>
+      <p class="hak-cipta">2026 Perpustakaan Fakultas Adab dan Humaniora</p>
+    </div>
+  </footer>
+
+</body>
+</html>

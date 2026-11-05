@@ -1,0 +1,1028 @@
+/* ==================================================
+   ORANG 1 - FONDASI (dipakai semua orang)
+   Warna, font, tombol, dan pengaturan dasar.
+   Jangan ubah bagian ini tanpa memberi tahu tim.
+   ================================================== */
+:root {
+  --kuning: #f3c942;
+  --krem: #f6ebc8;
+  --krem-muda: #fbf1d0;
+  --putih: #fffdf7;
+  --gelap: #25251f;
+  --abu: #66655a;
+  --garis: #e6e0cf;
+  --cokelat: #7a5c00;
+  --font-judul: "Chakra Petch", "Trebuchet MS", sans-serif;
+  --font-teks: "DM Sans", "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--putih);
+  color: var(--gelap);
+  font-family: var(--font-teks);
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, p, ul, dl, dd, figure {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+/* Lebar maksimal isi halaman. Dipakai di semua section. */
+.wadah {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* Jarak atas-bawah section */
+.bagian {
+  padding: 64px 0;
+}
+
+.bagian-krem {
+  background: var(--krem);
+}
+
+/* Tiga komponen kepala section: label kecil, judul, garis kuning */
+.label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cokelat);
+}
+
+h2 {
+  margin-top: 24px;
+  font-family: var(--font-judul);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.garis-judul {
+  width: 56px;
+  height: 4px;
+  margin: 32px 0;
+  border-radius: 4px;
+  background: var(--kuning);
+}
+
+/* Grid kolom yang dipakai ulang */
+.grid-2, .grid-3, .grid-4 {
+  display: grid;
+  gap: 16px;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Tombol: class .tombol + satu class warna */
+.tombol {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+.tombol:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.tombol-kuning { background: var(--kuning); color: var(--gelap); }
+.tombol-gelap  { background: var(--gelap); color: #fff; }
+.tombol-garis  { border-color: #fff; color: #fff; }
+
+/* Ikon kotak gelap: dipakai di Quick Access dan Statistik */
+.ikon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--gelap);
+  color: var(--kuning);
+  font-size: 24px;
+}
+
+/* Label kecil berwarna krem: dipakai di Katalog dan Kegiatan */
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #f8e8ab;
+  font-size: 12px;
+}
+
+/* Sembunyikan elemen dari mata, tapi tetap terbaca screen reader
+   dan tetap bisa dipakai lewat keyboard. */
+.tersembunyi {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+/* Garis fokus saat memakai keyboard (Tab) */
+a:focus-visible,
+summary:focus-visible,
+input[type="search"]:focus-visible {
+  outline: 3px solid #b58900;
+  outline-offset: 2px;
+}
+
+
+/* ==================================================
+   ORANG 1 - NAVBAR
+   ================================================== */
+/* Navbar transparan yang menumpang di atas foto hero */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  color: #fff;
+}
+
+.navbar-isi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1184px;
+  min-height: 100px;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+
+.navbar .tombol {
+  padding: 9px 20px;
+}
+
+.merek {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==================================================
+   ORANG 1 - HERO
+   ================================================== */
+.hero {
+  /* Lapisan gelap transparan di atas foto agar teks putih mudah dibaca */
+  background: linear-gradient(rgba(37, 37, 31, 0.76), rgba(37, 37, 31, 0.76)),
+              url("assets/gedung.jpg") center / cover;
+  color: #fff;
+}
+
+.hero-isi {
+  display: grid;
+  grid-template-columns: 552px 568px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1184px;
+  margin: 0 auto;
+  padding: 81px 0;
+}
+
+.lencana {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--kuning);
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  margin: 44px 0 56px;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.hero-teks > p {
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.hero-tombol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hero-tombol .tombol {
+  padding: 14px 28px;
+}
+
+.hero-angka {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  margin-top: 44px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.hero-angka dd {
+  font-size: 28px;
+}
+
+.hero-angka dt {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* Kotak kuning di belakang foto dibuat dengan ::before */
+.hero-foto {
+  position: relative;
+  top: 9px;
+  padding-left: 16px;
+  padding-bottom: 16px;
+}
+
+.hero-foto::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 18px;
+  bottom: 0;
+  border-radius: 32px;
+  background: #e8bd3a;
+}
+
+.hero-foto img {
+  position: relative;
+  width: 100%;
+  border-radius: 32px;
+}
+
+.hero-foto figcaption {
+  position: absolute;
+  left: 36px;
+  bottom: 36px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--gelap);
+  font-size: 14px;
+}
+
+
+/* ==================================================
+   ORANG 2 - QUICK ACCESS
+   ================================================== */
+.kartu-akses {
+  padding: 20px;
+  border: 1px solid var(--garis);
+  border-radius: 20px;
+  background: #fffefb;
+}
+
+.kartu-akses h3 {
+  margin-top: 24px;
+  font-family: var(--font-judul);
+  font-size: 24px;
+}
+
+.kartu-akses p {
+  margin: 18px 0 24px;
+  color: var(--abu);
+}
+
+.kartu-akses .tombol {
+  padding: 8px 16px;
+}
+
+.baris-detail {
+  margin-top: 32px;
+}
+
+.kartu-detail {
+  padding: 28px 20px 30px;
+  border-radius: 16px;
+  background: var(--krem);
+  scroll-margin-top: 24px;
+}
+
+.kartu-detail h3 {
+  font-family: var(--font-judul);
+  font-size: 22px;
+}
+
+.kartu-detail p {
+  margin: 16px 0;
+  color: #4b4a40;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+/* Tombol nilai 1-5 */
+.rating {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.rating label {
+  width: 34px;
+  height: 37px;
+  border-radius: 8px;
+  background: #fff;
+  line-height: 37px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.rating label:hover {
+  background: #fdf3cd;
+}
+
+/* :checked + label = label tepat setelah radio yang dipilih */
+.rating input:checked + label {
+  background: var(--gelap);
+  color: var(--kuning);
+}
+
+.rating input:focus-visible + label {
+  outline: 3px solid #b58900;
+  outline-offset: 2px;
+}
+
+/* Pesan muncul setelah salah satu nilai dipilih */
+.rating .pesan-nilai {
+  display: none;
+  width: 100%;
+  margin: 4px 0 0;
+  font-weight: 500;
+}
+
+.rating input:checked ~ .pesan-nilai {
+  display: block;
+}
+
+/* Tombol tandai kunjungan: ganti teks saat checkbox dicentang */
+.tombol-tandai {
+  padding: 8px 16px;
+}
+
+.tombol-tandai .sudah {
+  display: none;
+}
+
+#tandai:checked + .tombol-tandai {
+  background: var(--kuning);
+  color: var(--gelap);
+}
+
+#tandai:checked + .tombol-tandai .belum {
+  display: none;
+}
+
+#tandai:checked + .tombol-tandai .sudah {
+  display: inline;
+}
+
+#tandai:focus-visible + .tombol-tandai {
+  outline: 3px solid #b58900;
+  outline-offset: 2px;
+}
+
+
+/* ==================================================
+   ORANG 3 - KOLEKSI REKOMENDASI
+   ================================================== */
+.kartu-rekomendasi {
+  padding: 24px;
+  border: 1px solid var(--garis);
+  border-radius: 20px;
+  background: var(--putih);
+}
+
+.judul-daftar {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--gelap);
+  color: var(--kuning);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.daftar-buku {
+  margin-top: 16px;
+  list-style: none;
+}
+
+.daftar-buku li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.daftar-buku li:last-child {
+  margin-bottom: 0;
+}
+
+.daftar-buku img {
+  flex-shrink: 0;
+  width: 64px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.daftar-buku h4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.daftar-buku p {
+  color: var(--abu);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.tombol-besar {
+  margin-top: 32px;
+  padding: 12px 24px;
+}
+
+
+/* ==================================================
+   ORANG 4 - KATALOG (JELAJAHI RAK KAMI)
+   ================================================== */
+.judul-dm {
+  font-family: var(--font-teks);
+}
+
+.katalog-atas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 34px;
+  color: var(--abu);
+}
+
+.jumlah-hasil {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #f8e8ab;
+  color: var(--gelap);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pencarian {
+  max-width: 576px;
+  margin-top: 16px;
+}
+
+.pencarian label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.pencarian input {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  border: 1px solid #d9d3bf;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--gelap);
+  font: inherit;
+}
+
+.pencarian small {
+  display: block;
+  margin-top: 8px;
+  color: var(--abu);
+  font-size: 13px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0 32px;
+}
+
+.chips label {
+  padding: 9px 20px;
+  border: 1px solid var(--garis);
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.chips label:hover {
+  border-color: var(--gelap);
+}
+
+/* Filter tanpa JavaScript, cara kerjanya:
+   1. Radio yang terpilih memberi garis gelap pada label pasangannya.
+   2. Radio yang terpilih menyembunyikan kartu yang bukan kategorinya.
+   "~" artinya: elemen sesudahnya yang satu induk. */
+#f-semua:checked ~ .chips label[for="f-semua"],
+#f-fiksi:checked ~ .chips label[for="f-fiksi"],
+#f-sains:checked ~ .chips label[for="f-sains"],
+#f-sejarah:checked ~ .chips label[for="f-sejarah"],
+#f-diri:checked ~ .chips label[for="f-diri"] {
+  border-color: var(--gelap);
+}
+
+#f-semua:focus-visible ~ .chips label[for="f-semua"],
+#f-fiksi:focus-visible ~ .chips label[for="f-fiksi"],
+#f-sains:focus-visible ~ .chips label[for="f-sains"],
+#f-sejarah:focus-visible ~ .chips label[for="f-sejarah"],
+#f-diri:focus-visible ~ .chips label[for="f-diri"] {
+  outline: 3px solid #b58900;
+  outline-offset: 2px;
+}
+
+#f-fiksi:checked ~ .grid-buku .kartu-buku:not(.fiksi),
+#f-sains:checked ~ .grid-buku .kartu-buku:not(.sains),
+#f-sejarah:checked ~ .grid-buku .kartu-buku:not(.sejarah),
+#f-diri:checked ~ .grid-buku .kartu-buku:not(.diri) {
+  display: none;
+}
+
+/* Teks jumlah hasil mengikuti filter */
+#f-semua:checked ~ .katalog-atas .hasil-satu,
+#f-semua:not(:checked) ~ .katalog-atas .hasil-semua {
+  display: none;
+}
+
+.grid-buku {
+  gap: 23px;
+}
+
+.kartu-buku {
+  overflow: hidden;
+  border: 1px solid var(--garis);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.kartu-buku > img {
+  width: 100%;
+  height: 192px;
+  object-fit: cover;
+}
+
+.kartu-buku-isi {
+  padding: 23px 20px 20px;
+}
+
+.kartu-buku h3 {
+  margin-top: 12px;
+  font-family: var(--font-judul);
+  font-size: 24px;
+  line-height: 49px;
+}
+
+.penulis {
+  margin-top: 8px;
+  color: var(--abu);
+  font-size: 14px;
+}
+
+.info-buku {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--garis);
+  color: var(--abu);
+  font-size: 14px;
+}
+
+.tersedia {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e4f0d9;
+  color: #2c5a24;
+  font-size: 12px;
+}
+
+/* <details> = buka-tutup bawaan HTML, summary dibuat seperti tombol */
+.rincian {
+  margin-top: 24px;
+}
+
+.rincian summary {
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--kuning);
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+}
+
+.rincian summary::-webkit-details-marker {
+  display: none;
+}
+
+.rincian summary::after {
+  content: " ↓";
+}
+
+.rincian[open] summary::after {
+  content: " ↑";
+}
+
+.rincian p {
+  margin-top: 12px;
+  color: var(--abu);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+
+/* ==================================================
+   ORANG 4 - STATISTIK PENGUNJUNG
+   ================================================== */
+.bagian-statistik {
+  padding-top: 72px;
+}
+
+.bagian-statistik .grid-2 {
+  margin-top: 84px;
+}
+
+.kartu-statistik {
+  padding: 36px 36px 77px;
+  border-radius: 20px;
+  background: var(--krem);
+}
+
+.angka {
+  margin-top: 24px;
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+.kartu-statistik h3 {
+  margin-top: 18px;
+  font-family: var(--font-judul);
+  font-size: 24px;
+}
+
+
+/* ==================================================
+   ORANG 5 - LAYANAN PERPUSTAKAAN
+   ================================================== */
+.bagian-layanan {
+  padding: 56px 0;
+  background: var(--kuning);
+}
+
+.panel-layanan {
+  min-height: 335px;
+  padding: 32px;
+  border: 1px solid #b89a33;
+  border-radius: 20px;
+  background: var(--krem-muda);
+}
+
+/* Saat panel ditutup tingginya mengecil */
+.panel-layanan:not([open]) {
+  min-height: 0;
+}
+
+.panel-layanan summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.panel-layanan summary::-webkit-details-marker {
+  display: none;
+}
+
+.tombol-panel {
+  padding: 9px 20px;
+  border: 1px solid var(--gelap);
+  border-radius: 999px;
+}
+
+.tombol-panel:hover {
+  background: var(--krem);
+}
+
+/* Ganti teks tombol mengikuti kondisi panel */
+.panel-layanan[open] .teks-buka,
+.panel-layanan:not([open]) .teks-tutup {
+  display: none;
+}
+
+.panel-layanan h3 {
+  margin-bottom: 26px;
+  font-family: var(--font-judul);
+  font-size: 36px;
+  line-height: 45px;
+}
+
+
+/* ==================================================
+   ORANG 5 - KEGIATAN PERPUSTAKAAN
+   ================================================== */
+.pengantar {
+  max-width: 680px;
+  margin: 32px 0 32px;
+  color: #4b4a40;
+}
+
+.kartu-kegiatan {
+  overflow: hidden;
+  border: 1px solid var(--garis);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.kartu-kegiatan > img {
+  width: 100%;
+  height: 192px;
+  object-fit: cover;
+}
+
+.kartu-kegiatan-isi {
+  padding: 20px;
+}
+
+.kegiatan-atas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--abu);
+  font-size: 14px;
+}
+
+.kartu-kegiatan h3 {
+  margin-top: 15px;
+  font-family: var(--font-judul);
+  font-size: 24px;
+  line-height: 49px;
+}
+
+.kartu-kegiatan p {
+  margin: 12px 0 20px;
+  color: #4b4a40;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.kartu-kegiatan .tombol {
+  padding: 10px 20px;
+}
+
+
+/* ==================================================
+   ORANG 5 - FOOTER
+   ================================================== */
+.footer {
+  padding: 56px 0 44px;
+  background: var(--gelap);
+  color: #fff;
+}
+
+.footer-atas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.footer h2 {
+  margin: 0 0 32px;
+  color: var(--kuning);
+  font-size: 30px;
+}
+
+.footer address {
+  max-width: 440px;
+  color: #e8e5da;
+  font-style: normal;
+  line-height: 21px;
+}
+
+.footer address a {
+  text-decoration: none;
+}
+
+.footer address a:hover {
+  text-decoration: underline;
+}
+
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.footer-menu a {
+  text-decoration: none;
+}
+
+.footer-menu a:hover {
+  text-decoration: underline;
+}
+
+.hak-cipta {
+  margin-top: 20px;
+  color: #cfccc0;
+  font-size: 14px;
+}
+
+
+/* ==================================================
+   ORANG 1 - RESPONSIVE (tablet dan HP)
+   Tiap orang boleh menambah aturan untuk bagiannya di sini.
+   ================================================== */
+
+/* Laptop kecil dan tablet */
+@media (max-width: 1240px) {
+  .navbar-isi,
+  .hero-isi {
+    max-width: none;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  /* Menu bisa turun ke beberapa baris, jadi navbar kembali mengikuti alur
+     halaman supaya tidak menutupi isi hero */
+  .navbar {
+    position: static;
+    background: var(--gelap);
+  }
+
+  .navbar-isi {
+    flex-wrap: wrap;
+  }
+
+  .hero-isi {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .hero-foto {
+    top: 0;
+    max-width: 568px;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* HP */
+@media (max-width: 640px) {
+  .wadah,
+  .navbar-isi,
+  .hero-isi {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .merek {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .menu {
+    gap: 8px 16px;
+  }
+
+  .hero h1 {
+    margin: 28px 0 24px;
+    font-size: 40px;
+    white-space: normal;
+  }
+
+  .hero-foto figcaption {
+    left: 28px;
+    bottom: 28px;
+  }
+
+  h2 {
+    font-size: 34px;
+  }
+
+  .grid-2,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .bagian-layanan {
+    padding: 32px 0;
+  }
+
+  .panel-layanan {
+    padding: 20px;
+  }
+
+  .panel-layanan h3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .kartu-buku h3,
+  .kartu-kegiatan h3 {
+    line-height: 34px;
+  }
+
+  .kartu-statistik {
+    padding: 24px 24px 32px;
+  }
+}
+
+/* Matikan animasi jika pengguna memintanya di pengaturan perangkat */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .tombol {
+    transition: none;
+  }
+}
