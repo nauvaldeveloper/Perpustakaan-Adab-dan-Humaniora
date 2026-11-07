@@ -26,6 +26,15 @@
         <span>Perpustakaan<br>Adab dan Humaniora</span>
       </a>
 
+      <!-- Tombol garis tiga untuk layar kecil. Checkbox + label: menu bisa
+           dibuka-tutup tanpa JavaScript. Checkbox harus SEBELUM menu,
+           karena selector "~" hanya melihat ke bawah. -->
+      <input class="tersembunyi" type="checkbox" id="buka-menu">
+      <label class="tombol-menu" for="buka-menu">
+        <span class="tersembunyi">Buka menu navigasi</span>
+        <span class="garis-menu" aria-hidden="true"></span>
+      </label>
+
       <nav class="menu" aria-label="Menu utama">
         <a href="#tentang">Tentang kami</a>
         <a href="#quick-access">Quick Access</a>
@@ -53,7 +62,6 @@
 
           <div class="hero-tombol">
             <a class="tombol tombol-gelap" href="#quick-access">Selengkapnya →</a>
-            <a class="tombol tombol-garis" href="#layanan">Layanan</a>
           </div>
 
           <dl class="hero-angka">
@@ -103,10 +111,10 @@
           </article>
 
           <article class="kartu-akses">
-            <div class="ikon" aria-hidden="true">▣</div>
-            <h3>Library Guides</h3>
-            <p>Panduan penelusuran</p>
-            <a class="tombol tombol-kuning" href="#panduan">Lihat panduan →</a>
+            <div class="ikon" aria-hidden="true">§</div>
+            <h3>Tata Tertib</h3>
+            <p>Aturan selama di perpustakaan</p>
+            <a class="tombol tombol-kuning" href="#tata-tertib">Baca aturan →</a>
           </article>
         </div>
 
@@ -146,12 +154,38 @@
             <a class="tombol tombol-gelap" href="mailto:adhum@uinsgd.ac.id">Kirim email ↗</a>
           </article>
 
-          <article class="kartu-detail" id="panduan">
-            <h3>Library Guides</h3>
-            <p>Gunakan pencarian judul, penulis, atau kata kunci; lalu pilih kategori untuk mempersempit hasil.</p>
-            <a class="tombol tombol-gelap" href="#katalog">Coba katalog →</a>
+          <article class="kartu-detail">
+            <h3>Tata Tertib</h3>
+            <p>Jaga ketertiban, kebersihan, dan ketenangan bersama. Ada 11 aturan yang berlaku bagi setiap pengunjung.</p>
+            <a class="tombol tombol-gelap" href="#tata-tertib">Baca selengkapnya ↓</a>
           </article>
         </div>
+
+        <!-- Panel tata tertib lengkap. Nomor bulat kuning dibuat dengan
+             CSS counter (lihat .daftar-aturan di style.css). -->
+        <article class="panel-tertib" id="tata-tertib">
+          <div class="tertib-kepala">
+            <div class="ikon" aria-hidden="true">§</div>
+            <div>
+              <h3>Tata Tertib Perpustakaan</h3>
+              <p>Fakultas Adab dan Humaniora UIN Sunan Gunung Djati Bandung</p>
+            </div>
+          </div>
+
+          <ol class="daftar-aturan" role="list">
+            <li>Setiap pengunjung wajib menjaga ketertiban dan kenyamanan selama berada di area perpustakaan.</li>
+            <li>Pengunjung dilarang membawa makanan dan minuman ke dalam ruang perpustakaan.</li>
+            <li>Pengunjung wajib menjaga kebersihan lingkungan perpustakaan.</li>
+            <li>Pengunjung dilarang membuat kegaduhan yang dapat mengganggu kenyamanan pengguna lain.</li>
+            <li>Pengunjung dilarang merusak, mencoret, melipat, atau menghilangkan koleksi bahan pustaka.</li>
+            <li>Pengunjung yang telah selesai membaca buku diharapkan meletakkan buku tersebut di meja yang telah disediakan dan tidak mengembalikannya langsung ke rak buku.</li>
+            <li>Pengunjung dilarang memindahkan fasilitas perpustakaan tanpa izin petugas.</li>
+            <li>Pengunjung wajib menjaga barang pribadi masing-masing.</li>
+            <li>Pengunjung diperbolehkan menggunakan telepon genggam dengan tetap memperhatikan ketenangan dan kenyamanan pengguna lain.</li>
+            <li>Pengunjung wajib menjaga dan menggunakan fasilitas perpustakaan dengan baik.</li>
+            <li>Pengunjung wajib mematuhi arahan dan ketentuan yang diberikan oleh petugas perpustakaan.</li>
+          </ol>
+        </article>
       </div>
     </section>
 

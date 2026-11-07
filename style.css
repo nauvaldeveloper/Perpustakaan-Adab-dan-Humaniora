@@ -214,6 +214,63 @@ input[type="search"]:focus-visible {
   text-decoration: none;
 }
 
+/* Tombol garis tiga: hanya muncul di layar kecil (lihat bagian responsif) */
+.tombol-menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Satu span digambar jadi tiga garis: garis tengah = span itu sendiri,
+   garis atas dan bawah = ::before dan ::after */
+.garis-menu,
+.garis-menu::before,
+.garis-menu::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.garis-menu {
+  position: relative;
+}
+
+.garis-menu::before,
+.garis-menu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.garis-menu::before { top: -7px; }
+.garis-menu::after  { top: 7px; }
+
+/* Saat menu terbuka, tiga garis berubah jadi tanda silang */
+#buka-menu:checked + .tombol-menu .garis-menu {
+  background: transparent;
+}
+
+#buka-menu:checked + .tombol-menu .garis-menu::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+#buka-menu:checked + .tombol-menu .garis-menu::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+#buka-menu:focus-visible + .tombol-menu {
+  outline: 3px solid #b58900;
+  outline-offset: 2px;
+}
+
 .menu a:hover {
   text-decoration: underline;
 }
@@ -448,6 +505,76 @@ input[type="search"]:focus-visible {
 #tandai:focus-visible + .tombol-tandai {
   outline: 3px solid #b58900;
   outline-offset: 2px;
+}
+
+/* Panel tata tertib lengkap di bawah kartu detail */
+.panel-tertib {
+  margin-top: 32px;
+  padding: 40px;
+  border: 1px solid var(--garis);
+  border-radius: 20px;
+  background: #fffefb;
+  scroll-margin-top: 24px;
+}
+
+.tertib-kepala {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--garis);
+}
+
+.tertib-kepala .ikon {
+  flex-shrink: 0;
+}
+
+.tertib-kepala h3 {
+  font-family: var(--font-judul);
+  font-size: 28px;
+}
+
+.tertib-kepala p {
+  margin-top: 6px;
+  color: var(--abu);
+  font-size: 14px;
+}
+
+/* Daftar bernomor dua kolom. list-style dimatikan, lalu nomor
+   digambar sendiri dengan counter di ::before */
+.daftar-aturan {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: aturan;
+}
+
+.daftar-aturan li {
+  display: flex;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--garis);
+  font-size: 15px;
+  line-height: 22px;
+  counter-increment: aturan;
+}
+
+.daftar-aturan li::before {
+  content: counter(aturan);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--kuning);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 
@@ -925,8 +1052,8 @@ input[type="search"]:focus-visible {
     padding-right: 48px;
   }
 
-  /* Menu bisa turun ke beberapa baris, jadi navbar kembali mengikuti alur
-     halaman supaya tidak menutupi isi hero */
+  /* Layar kecil: navbar kembali mengikuti alur halaman, dan menu
+     disimpan di balik tombol garis tiga */
   .navbar {
     position: static;
     background: var(--gelap);
@@ -934,6 +1061,37 @@ input[type="search"]:focus-visible {
 
   .navbar-isi {
     flex-wrap: wrap;
+    gap: 0;
+    min-height: 80px;
+  }
+
+  .tombol-menu {
+    display: flex;
+  }
+
+  /* Menu dan tombol "Jelajahi Layanan" tersembunyi sampai garis tiga diklik */
+  .menu,
+  .navbar-isi > .tombol {
+    display: none;
+  }
+
+  #buka-menu:checked ~ .menu {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    gap: 0;
+    margin-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .menu a {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  #buka-menu:checked ~ .tombol {
+    display: inline-flex;
+    margin: 20px 0 12px;
   }
 
   .hero-isi {
@@ -969,8 +1127,20 @@ input[type="search"]:focus-visible {
     line-height: 25px;
   }
 
-  .menu {
-    gap: 8px 16px;
+  .panel-tertib {
+    padding: 24px 20px;
+  }
+
+  .tertib-kepala {
+    align-items: flex-start;
+  }
+
+  .tertib-kepala h3 {
+    font-size: 24px;
+  }
+
+  .daftar-aturan {
+    grid-template-columns: 1fr;
   }
 
   .hero h1 {
@@ -1022,7 +1192,10 @@ input[type="search"]:focus-visible {
     scroll-behavior: auto;
   }
 
-  .tombol {
+  .tombol,
+  .garis-menu,
+  .garis-menu::before,
+  .garis-menu::after {
     transition: none;
   }
 }
